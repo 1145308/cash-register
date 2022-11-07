@@ -29,7 +29,7 @@ function checkClickHandler() {
         }
     }
     else {
-        showErrorMessage("Please put valid numbers");
+        showErrorMessage("Please fill both text boxes");
     }
 }
 
