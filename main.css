@@ -1,7 +1,94 @@
+/* body{
+    background-color: darkgreen ;   
+} */
 
 
 .container{
+    margin: auto;
+    height: 99vh;
     display: flex;
     flex-direction: column;
+    background-color: skyblue ;
     width: 50vw;
+}
+
+#header{
+    
+    padding: 1rem;
+    margin-left: 9rem;
+    font-size: xx-large;
+    
+}
+
+#head-para{
+    text-align: center;
+    margin: 2rem 0;
+    
+}
+.label{
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    margin: 1rem;
+    
+}
+.text-input{
+    margin: 1rem;
+    display: block;
+    margin: auto;
+    width: 21rem;
+    padding: 0.6rem 1rem;
+    border: black solid 2px;
+    border-radius: 0.7rem;
+}
+#check-button{
+    cursor:pointer;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    border: white solid 2px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.7rem ;
+    background-color: black;
+    color: white;
+}
+#error-message{
+    color: red; 
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#table-caption{
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin: 1rem;
+}
+table, th, td{
+    border: solid 2px black;
+    border-collapse: collapse;
+    
+}
+
+.caption-head{
+    color: white;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+#center{
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+.table-row{
+    margin-top: 1rem;
+}
+
+th, td{
+    color: black;
+    column-width: 57px;
+    padding: 0.4rem 0.5rem;
 }

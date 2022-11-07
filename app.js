@@ -1,28 +1,49 @@
 var billAmount = document.querySelector("#bill-amount");
 var cashGiven = document.querySelector("#cash-given");
-var checkButton = document.querySelector("#check-button");
-var message = document.queryCommandValue("#error-message");
+var btnCheck = document.querySelector("#check-button");
+var errMessage = document.querySelector("#error-message");
+var numberOfNotes = document.querySelectorAll(".no-of-notes");
 
-// console.log(cashGiven.value);
-checkButton.addEventListener("click" , function validateAmount(){
-    console.log(billAmount.value);
-    if (billAmount.value > 0){
-        if (cashGiven.value >= billAmount.value){
-        const amountToBeReturned = cashGiven.value-billAmount.value;
-        calculateChange(amountToBeReturned);
-    } else {
-        showMessage = (
-            "The cash should atleast be equal to the bill amount "
-            );
+var availableNotes = [2000, 500, 100, 20, 10, 5, 1];
+
+function checkClickHandler() {
+    errMessage.style.display = "none";
+    var billAmt = Number(billAmount.value);
+    var cash = Number(cashGiven.value);
+    if (billAmt && cash) {
+        if (billAmt > 0 && cash > 0) {
+            if (billAmt != cash) {
+                if (billAmt < cash) {
+                    var amountToBeReturned = cash - billAmt;
+                    calculateNoOfNotes(amountToBeReturned);
+                } else {
+                    showErrorMessage("Cash given should be greater than bill amount.")
+                }
+            }
+            else {
+                showErrorMessage("No change required to be given");
+            }
+        }
+        else {
+            showErrorMessage("bill amount or cash given can not be less than or equal to 0.");
+        }
     }
-} else {
-    showMessage("invalid Bill Amount");
+    else {
+        showErrorMessage("Please put valid numbers");
+    }
 }
 
-});
-
-function showMessage(msg) {
-    console.log("here");
-    message.style.display ="block";
-    message.innerText = msg;
+function showErrorMessage(message) {
+    errMessage.style.display = "block";
+    errMessage.innerText = message;
 }
+
+function calculateNoOfNotes(amountToBeReturned) {
+    for (let i = 0; i < availableNotes.length; i++) {
+        var noOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
+        amountToBeReturned = amountToBeReturned % availableNotes[i];
+        numberOfNotes[i].innerText = noOfNotes;
+    }
+}
+
+btnCheck.addEventListener('click', checkClickHandler);
